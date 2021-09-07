@@ -4,7 +4,9 @@ navigator.geolocation.getCurrentPosition(
     console.log(position);
     // Show a map centered at latitude / longitude.
     console.log(latitude, longitude);
-    alert(`latitute ${latitude} longitude ${longitude}`);
+    alert(
+      `latitute ${latitude} longitude ${longitude} accuracy ${position.coords.accuracy}`
+    );
   },
   (error) => {
     console.log(
