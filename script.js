@@ -9,7 +9,18 @@ const latLong = navigator.geolocation.getCurrentPosition(
     // alert(
     //   `latitute ${latitude} longitude ${longitude} accuracy ${position.coords.accuracy}`
     // );
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').setView([latitude, longitude], 15);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3Jpaml0LWRhcyIsImEiOiJja2VzcW1xbmEzZHBxMnZucHBrNXlueXd2In0.mpCVKlCQnkP2EMF7yehWFA', {
+    
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1Ijoic3Jpaml0LWRhcyIsImEiOiJja2VzcW1xbmEzZHBxMnZucHBrNXlueXd2In0.mpCVKlCQnkP2EMF7yehWFA'
+}).addTo(mymap);
+
+var marker = L.marker([latitude, longitude]).addTo(mymap);
   },
   (error) => {
     console.log(
