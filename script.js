@@ -4,9 +4,16 @@ navigator.geolocation.getCurrentPosition(
     console.log(position);
     // Show a map centered at latitude / longitude.
     console.log(latitude, longitude);
+    alert(`latitute ${latitude} longitude ${longitude}`);
   },
-  function error(msg) {
-    alert("Please enable your GPS position feature.");
+  (error) => {
+    console.log(
+      `Unable to retrieve your location due to ${error.code}: ${error.message}`
+    );
   },
-  { enableHighAccuracy: true }
+  {
+    enableHighAccuracy: true,
+    maximumAge: 30000,
+    timeout: 27000,
+  }
 );
