@@ -1,12 +1,15 @@
-navigator.geolocation.getCurrentPosition(
+
+
+const latLong = navigator.geolocation.getCurrentPosition(
   (position) => {
     const { latitude, longitude } = position.coords;
     console.log(position);
-    // Show a map centered at latitude / longitude.
+
     console.log(latitude, longitude);
-    alert(
-      `latitute ${latitude} longitude ${longitude} accuracy ${position.coords.accuracy}`
-    );
+    // alert(
+    //   `latitute ${latitude} longitude ${longitude} accuracy ${position.coords.accuracy}`
+    // );
+    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
   },
   (error) => {
     console.log(
@@ -19,3 +22,4 @@ navigator.geolocation.getCurrentPosition(
     timeout: 27000,
   }
 );
+
